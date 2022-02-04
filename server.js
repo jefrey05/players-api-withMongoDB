@@ -42,6 +42,12 @@ app.post('/addPlayer',(req,res)=>{
     .catch(error=>console.error(error))
 })
 
+app.delete('/deletePlayer',(req,res)=>{
+    db.collection('players').deleteOne({playerName:req.body.playerName,nationality:req.body.nationality})
+    .then(result=>{
+        console.log('Player Deleted')
+    })
+})
 
 app.listen(process.env.PORT || PORT,()=>{
     console.log(`Server running on port ${PORT}`)
