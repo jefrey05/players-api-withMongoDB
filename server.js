@@ -2,10 +2,11 @@ const express = require('express');
 const app =  express();
 const PORT = 8000;
 const cors = require('cors');
-const { response } = require('express');
 const MongoClient = require('mongodb').MongoClient;
 app.use(cors());
 require('dotenv').config()
+
+
 
 let db,
    dbConnectionStr = process.env.DB_STRING,
