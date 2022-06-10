@@ -43,10 +43,12 @@ app.post('/addPlayer',(req,res)=>{
 })
 
 app.delete('/deletePlayer',(req,res)=>{
-    db.collection('players').deleteOne({playerName:req.body.playerName,nationality:req.body.nationality})
+    db.collection('players').deleteOne({name:req.body.playerName,nationality:req.body.nationality})
     .then(result=>{
-        console.log('Player Deleted')
+        console.log('Player Deleted');
+        res.json('Player deleted')
     })
+    .catch(error=> console.error(error))
 })
 
 app.listen(process.env.PORT || PORT,()=>{
