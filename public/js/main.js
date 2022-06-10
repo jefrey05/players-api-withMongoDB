@@ -23,3 +23,9 @@ async function deletePlayer(){
         console.log(err)
     }
 }
+
+const deletePlayer = document.querySelector('.fa-trash')
+Array.from(deletePlayer).forEach((element)=>{
+    element.addEventListener('click',deletePlayer)
+})
+
